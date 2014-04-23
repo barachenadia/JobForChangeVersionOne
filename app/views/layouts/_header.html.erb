@@ -1,0 +1,159 @@
+<div class="line"></div>
+<div class="entete" style="height:80px">
+  
+
+  <a href=<%=root_path%>><%= image_tag("logo2.png", :alt => "", :id => "", a: "#", :style => "margin-top:-31px;margin-left: 60px;") %></a>
+  
+ 
+ <div>
+<ul id="header_ul" class="list-inline navbar-text " style="margin-top: -23px;margin-left: 465px;">
+      <li><a href=<%=root_path%> style="color:black;font-family: 'Lora', 'serif;"><span class="glyphicon glyphicon-home" style="color:#ff6600"></span> <strong>HOME</strong></a></li>
+      <li><a class="header_link active" href="#" style="color:black;font-family: 'Lora', 'serif;"><span class="glyphicon glyphicon-file" style="color:#ff6600"></span><strong> BLOG</strong> </a></li>
+      <li><a class="header_link" href="#" style="color:black;font-family: 'Lora', 'serif;"><span class="glyphicon glyphicon-list-alt" style="color:#ff6600"></span> <strong>NEWSLETTER</strong></a></li>
+    </ul> 
+    
+</div>
+                                 
+
+                                         <!-- =========== Sign in candidate ====================-->
+                                <!--=================== ========================================================== -->
+  
+  <% if candidate_signed_in? %>
+    <div  class="connexion_button btn btn-info btn-lg navbar-btn navbar-right dropdown">
+      <a id="inscription_button" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+        <%= "Bonjour #{current_candidate.email}" %><span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to('Profil', "/profil") %></li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target="">Annonces Favorites</a></li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target="">Candidatures</a></li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to("Déconnexion", destroy_candidate_session_path, method: :delete) %></a></li>
+      </ul>
+    </div>
+                                       
+                                              <!-- =========== Sign in company ====================-->
+                                <!--============================================================================== -->
+
+
+
+    <% elsif company_signed_in? %>
+    <div  class="connexion_button btn btn-info btn-lg navbar-btn navbar-right dropdown">
+      <a id="inscription_button" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+        <%= "Bonjour #{current_company.email}" %><span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to('Profil', "/profil") %></li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to('Mes annonces', "") %></li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to("Déconnexion", destroy_company_session_path, method: :delete) %></a></li>
+      </ul>
+    </div>
+    
+
+                                             <!-- =========== Home page====================-->
+                                <!--============================================================================== -->
+    <% else %>
+
+
+<div class="navigation " style="position: absolute;margin-top: -79px; margin-left: 1052px; ">
+    <div  class="connexion_button  navbar-right dropdown"  >  
+      <a id="inscription_button" data-toggle="dropdown" data-target="#" href="/page.html" style="background-color: #ff6600;color:black;font-size: 15px;font-family: 'Lora', 'serif;">
+
+        Creer un compte
+        
+        <span class="caret"></span></a>
+      
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="min-width: 123px;">
+        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to('Candidat', new_candidate_registration_path) %></li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to('Entreprise', new_company_registration_path) %></li>
+    </div>
+
+
+    <div  class="connexion_button  navbar-right dropdown" style="position: absolute;margin-left: -132px;">
+      <a id="se_connecter_button" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html" style="background-color: #ff6600;color:black;font-size: 15px;font-family: 'Lora', 'serif;">
+        
+        Se connecter
+
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="min-width: 123px;margin-right: -8px">
+        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#modal_connexion_company">Entreprise</a></li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#modal_connexion_candidat">Candidat</a></li>
+      </ul>
+    </div>
+    </div>
+
+    <% end %>
+
+
+    </div>
+  </nav>
+
+  <!-- Modal entreprise-->
+  <div class="modal fade" id="modal_connexion_company" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div id="first_modal_header" class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Connexion entreprise:</h4>
+        </div>
+
+        <div class="modal-body">
+          <div class="form_block">
+            <%= form_for(:company, :url => session_path(:company)) do |f| %>
+            <div><%= f.label :email %><br />
+              <%= f.email_field :email, :autofocus => true %>
+            </div>
+            <div><%= f.label :password %><br />
+              <%= f.password_field :password %>
+            </div>
+            <% if devise_mapping.rememberable? -%>
+            <div><%= f.check_box :remember_me %> <%= f.label :remember_me %>
+            </div>
+            <% end -%>
+            <div><%= f.submit "Sign in" %></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal candidat-->
+  <div class="modal fade" id="modal_connexion_candidat" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div id="first_modal_header" class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Connexion candidat:</h4>
+        </div>
+
+        <div class="modal-body">
+          <div class="form_block">
+            <%= link_to "Sign in with Linkedin", candidate_omniauth_authorize_path(:linkedin) %>
+            <%= form_for(:candidate, :url => session_path(:candidate)) do |f| %>
+            <div><%= f.label :email %><br />
+              <%= f.email_field :email, :autofocus => true %>
+            </div>
+            <div><%= f.label :password %><br />
+              <%= f.password_field :password %>
+            </div>
+            <% if devise_mapping.rememberable? -%>
+            <div><%= f.check_box :remember_me %> <%= f.label :remember_me %>
+            </div>
+            <% end -%>
+            <div><%= f.submit "Sign in" %></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

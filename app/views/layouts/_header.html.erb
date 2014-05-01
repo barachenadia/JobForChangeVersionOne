@@ -6,10 +6,10 @@
   
  
  <div>
-<ul id="header_ul" class="list-inline navbar-text " style="margin-top: -23px;margin-left: 465px;">
-      <li><a href=<%=root_path%> style="color:black;font-family: 'Lora', 'serif;"><span class="glyphicon glyphicon-home" style="color:#ff6600"></span> <strong>HOME</strong></a></li>
-      <li><a class="header_link active" href="#" style="color:black;font-family: 'Lora', 'serif;"><span class="glyphicon glyphicon-file" style="color:#ff6600"></span><strong> BLOG</strong> </a></li>
-      <li><a class="header_link" href="#" style="color:black;font-family: 'Lora', 'serif;"><span class="glyphicon glyphicon-list-alt" style="color:#ff6600"></span> <strong>NEWSLETTER</strong></a></li>
+    <ul id="header_ul" class="list-inline navbar-text " style="margin-top: -23px;margin-left: 465px; font-size:17px">
+      <li><a href=<%=root_path%> style="color:black;font-family: 'Source Sans Pro', 'sans-serif';"><span class="glyphicon glyphicon-home" style="color:#FF9900"></span> <strong>HOME</strong></a></li>
+      <li><a class="header_link active" href="#" style="color:black;font-family: 'Source Sans Pro', 'sans-serif';"><span class="glyphicon glyphicon-file" style="color:#FF9900"></span><strong> BLOG</strong> </a></li>
+      <li><a class="header_link" href="#" style="color:black;font-family: 'Source Sans Pro', 'sans-serif';"><span class="glyphicon glyphicon-list-alt" style="color:#FF9900"></span> <strong>NEWSLETTER</strong></a></li>
     </ul> 
     
 </div>
@@ -40,6 +40,7 @@
 
 
     <% elsif company_signed_in? %>
+
     <div  class="connexion_button btn btn-info btn-lg navbar-btn navbar-right dropdown">
       <a id="inscription_button" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
         <%= "Bonjour #{current_company.email}" %><span class="caret"></span>
@@ -59,9 +60,9 @@
     <% else %>
 
 
-<div class="navigation " style="position: absolute;margin-top: -79px; margin-left: 1052px; ">
+<div class="navigation " style="position: absolute;margin-top: -79px; margin-left: 1063px; ">
     <div  class="connexion_button  navbar-right dropdown"  >  
-      <a id="inscription_button" data-toggle="dropdown" data-target="#" href="/page.html" style="background-color: #ff6600;color:black;font-size: 15px;font-family: 'Lora', 'serif;">
+      <a id="inscription_button" data-toggle="dropdown" data-target="#" href="/page.html" style="background-color: #FF9900;color:black;font-size: 18px;font-family: 'Source Sans Pro', 'sans-serif';">
 
         Creer un compte
         
@@ -75,25 +76,25 @@
 
 
     <div  class="connexion_button  navbar-right dropdown" style="position: absolute;margin-left: -132px;">
-      <a id="se_connecter_button" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html" style="background-color: #ff6600;color:black;font-size: 15px;font-family: 'Lora', 'serif;">
+      <a id="se_connecter_button" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html" style="background-color: #FF9900;color:black;font-size: 18px;font-family: 'Source Sans Pro', 'sans-serif'; padding-left:16px">
         
-        Se connecter
+       Se connecter
 
         <span class="caret"></span>
       </a>
-      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="min-width: 123px;margin-right: -8px">
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="min-width: 123px;margin-right: 38px">
         <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#modal_connexion_company">Entreprise</a></li>
         <li role="presentation" class="divider"></li>
         <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#modal_connexion_candidat">Candidat</a></li>
       </ul>
     </div>
-    </div>
+  </div>
 
     <% end %>
 
 
-    </div>
-  </nav>
+   
+
 
   <!-- Modal entreprise-->
   <div class="modal fade" id="modal_connexion_company" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

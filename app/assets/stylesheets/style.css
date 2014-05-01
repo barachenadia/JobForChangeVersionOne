@@ -1,19 +1,22 @@
-/*body{
+body{
+  /*background-image:url(imgbackflou.jpg);*/
   background-image:url(img.jpg);
-}*/
+
+
+}
 .line{
   position:absolute;
   top:0px;
   left:0px;
   width:102%; 
   height:3px; 
-  background-color:#ff6600;
+  background-color:#FF9900;
 
 }
 .line_bottom{
-  width:100%;
-  border-bottom: 3px solid  red;
-    margin-bottom: -41px;
+width:100%;
+border-bottom: 3px solid  red;
+margin-bottom: -41px;
 
 }
 .entete{
@@ -83,3 +86,43 @@
   margin-left:-9px;
   margin-top:23px;
 }
+
+/*bouton violet*/
+/*.btn {padding:10px 20px; background: #8F047A;}
+.btn_red {background: #8F047A color: white;}
+
+.btn_red:hover {background: #8F047A;}
+
+a.btn {color:#666; text-align: center; text-decoration: none;}
+a.btn_red {color: white;}*/
+
+/*bouton vert*/
+.btn {padding:10px 20px; background:  #1DB36B;}
+.btn_red {background:  #1DB36B color: white;}
+
+.btn_red:hover {background:  #1DB36B;}
+
+a.btn {color:#666; text-align: center; text-decoration: none;}
+a.btn_red {color: white;}
+
+
+/*bouton orange*/
+.btn {padding:10px 20px;}
+.btn_orange  {background: #FF9900; color: white;}
+
+ .btn_orange:hover {background: #FF9900}
+
+ a.btn {color:#666; text-align: center; text-decoration: none;}
+ a.btn_orange{color: white;}
+
+ /*bouton envoyer*/
+
+ .btn {padding:10px 20px;}
+.btn_noir  {background: black; color: white;}
+
+ .btn_noir:hover {background: black}
+
+ a.btn {color:#666; text-align: center; text-decoration: none;}
+ a.btn_noir{color: white;}
+
+

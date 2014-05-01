@@ -2,6 +2,7 @@
 <html >
 <head>
 	<title>JobForChange</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="http://getbootstrap.com/assets/js/docs.min.js"></script>
 	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 	<!--Rajouté avec Formtastic -->
@@ -16,9 +17,10 @@
 	<link rel="stylesheet" type="text/css" href="/assets/style.css"/>
 
 <!-- === Modal connexion ==== -->
-<link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+<!-- <link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'> -->
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:600' rel='stylesheet' type='text/css'>
 </head>
-<body style="background-color:#f2cfb8">
+<body >
 	<%= render 'layouts/header' %>
 
 		<%=yield%>
